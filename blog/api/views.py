@@ -45,10 +45,7 @@ class PostCreateView(generics.CreateAPIView):
         if self.request.user.is_authenticated:
             user_profile = UserProfile.objects.get(user=self.request.user)
             serializer.save(post_user=user_profile)
-        # else:
-        #     # Oturum açmamış bir kullanıcı için farklı bir işlem yapın
-        #     # Örneğin, gönderiyi anonim bir kullanıcı olarak kaydedebilirsiniz
-        #     serializer.save(post_user=None)  # Veya uygun bir varsayılan kullanıcı ataması yapabilirsiniz        
+                
 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
